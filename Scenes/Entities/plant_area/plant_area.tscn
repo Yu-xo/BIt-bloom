@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://chmwo1mjvce0x"]
+
+[ext_resource type="Texture2D" uid="uid://cj8q7gw3tgx45" path="res://Assets/placeholders/fence.png" id="1_a52if"]
+[ext_resource type="Script" uid="uid://dpsanf2uw16iv" path="res://Scenes/Entities/plant_area/plant_area.gd" id="1_wyo77"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hwoy6"]
+size = Vector2(226, 190)
+
+[node name="plant_area" type="Node2D"]
+script = ExtResource("1_wyo77")
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_hwoy6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3.5625, 3.7037)
+texture = ExtResource("1_a52if")

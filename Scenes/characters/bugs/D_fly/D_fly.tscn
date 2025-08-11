@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cad4bs7l5l8t4"]
+
+[ext_resource type="Script" uid="uid://rqk8vmfysidm" path="res://Scenes/characters/bugs/D_fly/d_fly.gd" id="1_lhpqe"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_eti3d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lhpqe"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("nav", "sprite")]
+script = ExtResource("1_lhpqe")
+bug_types = "DRAGONFLY"
+nav = NodePath("NavigationAgent2D")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.831373, 0.831373, 0, 1)
+scale = Vector2(0.0429688, 0.0351563)
+texture = SubResource("NoiseTexture2D_eti3d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_lhpqe")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

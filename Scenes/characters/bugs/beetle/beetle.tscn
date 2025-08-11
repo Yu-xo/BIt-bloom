@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdi37btly5dxh"]
+
+[ext_resource type="Script" uid="uid://dh48mmccmojpe" path="res://Scenes/characters/bugs/beetle/beetle.gd" id="1_ykqqb"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vv82n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vv82n"]
+
+[node name="Beetle" type="CharacterBody2D" node_paths=PackedStringArray("nav", "sprite")]
+script = ExtResource("1_ykqqb")
+nav = NodePath("NavigationAgent2D")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.0390625, 0.0390625)
+texture = SubResource("NoiseTexture2D_vv82n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vv82n")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

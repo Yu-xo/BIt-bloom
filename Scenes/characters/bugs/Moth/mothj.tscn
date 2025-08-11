@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0auac38a455c"]
+
+[ext_resource type="Script" uid="uid://p80x06eth13s" path="res://Scenes/characters/bugs/Moth/mothj.gd" id="1_axhde"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_iktif"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_axhde"]
+
+[node name="moth" type="CharacterBody2D" node_paths=PackedStringArray("nav", "sprite")]
+script = ExtResource("1_axhde")
+bug_types = "MOTH"
+nav = NodePath("NavigationAgent2D")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(0.0351563, 0.0429688)
+texture = SubResource("NoiseTexture2D_iktif")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_axhde")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

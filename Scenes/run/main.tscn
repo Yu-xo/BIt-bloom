@@ -1,0 +1,33 @@
+[gd_scene load_steps=8 format=3 uid="uid://cx64ny6tlraa6"]
+
+[ext_resource type="PackedScene" uid="uid://cdi37btly5dxh" path="res://Scenes/characters/bugs/beetle/beetle.tscn" id="1_euisu"]
+[ext_resource type="PackedScene" uid="uid://c0nhbjacseef" path="res://Scenes/stage/stage.tscn" id="1_smq3h"]
+[ext_resource type="PackedScene" uid="uid://chmwo1mjvce0x" path="res://Scenes/Entities/plant_area/plant_area.tscn" id="2_8lq5h"]
+[ext_resource type="PackedScene" uid="uid://duk6gpf32onem" path="res://Scenes/characters/player/player.tscn" id="2_oae6f"]
+[ext_resource type="PackedScene" uid="uid://c0auac38a455c" path="res://Scenes/characters/bugs/Moth/mothj.tscn" id="5_wfijp"]
+[ext_resource type="PackedScene" uid="uid://cad4bs7l5l8t4" path="res://Scenes/characters/bugs/D_fly/D_fly.tscn" id="6_xps3y"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ruddp"]
+vertices = PackedVector2Array(711, 506, 1313.99, 689.094, -87.6719, 701.898, 465, 506, 1240.93, -64.8594, 711, 296, -63.3203, -45.1406, 465, 296)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 1, 0, 5), PackedInt32Array(6, 4, 5, 7), PackedInt32Array(2, 6, 7, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-73, -55, -98, 712, 1325, 699, 1250, -75)])
+
+[node name="main" type="Node2D"]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_ruddp")
+
+[node name="stage" parent="NavigationRegion2D" instance=ExtResource("1_smq3h")]
+
+[node name="plant_area" parent="NavigationRegion2D" instance=ExtResource("2_8lq5h")]
+position = Vector2(588, 401)
+
+[node name="Beetle" parent="NavigationRegion2D" instance=ExtResource("1_euisu")]
+
+[node name="player" parent="NavigationRegion2D" instance=ExtResource("2_oae6f")]
+
+[node name="moth" parent="NavigationRegion2D" instance=ExtResource("5_wfijp")]
+position = Vector2(148, 429)
+
+[node name="D_fly" parent="NavigationRegion2D" instance=ExtResource("6_xps3y")]
+position = Vector2(85, 237)
