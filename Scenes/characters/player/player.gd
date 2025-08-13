@@ -1,19 +1,53 @@
 extends CharacterBody2D
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var hit_area: Area2D = $hit_Area
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
-@export var speed : int =100
-@export var health : int =3
-@export var dmg : int = 1
+@export var speed: int = 100
+@export var health: int = 3
+@export var dmg: int = 1
 
+var direction: Vector2
+var is_attacking: bool = false
 
-var is_moving :bool
-var direction : Vector2
+func _ready() -> void:
+	# make sure the signal is connected
+	animation_player.animation_finished.connect(_on_AnimationPlayer_animation_finished)
 
 func _physics_process(delta: float) -> void:
-	movement()
-	move_and_slide()
+	if not is_attacking:
+		direction = Input.get_vector("left","right","up","down")
+		velocity = direction * speed
 
+		# Play movement animations
+		if direction:
+			animation_player.play("run")
+		else:
+			animation_player.play("idle")
 
-func movement():
-	direction = Input.get_vector("left","right","up","down")
-	velocity = direction*speed
+		# Flip sprite
+		if direction.x < 0.0:
+			sprite_2d.flip_h = true
+		elif direction.x > 0.0:
+			sprite_2d.flip_h = false
+
+		move_and_slide()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("attack") and not is_attacking:
+		start_attack()
+
+func start_attack():
+	is_attacking = true
+	velocity = Vector2.ZERO
+	animation_player.play("attack")
+
+func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
+	if anim_name == "attack":
+		is_attacking = false
+		# Immediately switch to correct animation based on current input
+		if Input.get_vector("left","right","up","down") != Vector2.ZERO:
+			animation_player.play("run")
+		else:
+			animation_player.play("idle")

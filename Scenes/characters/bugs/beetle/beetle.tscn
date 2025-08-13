@@ -1,10 +1,49 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdi37btly5dxh"]
+[gd_scene load_steps=7 format=3 uid="uid://cdi37btly5dxh"]
 
 [ext_resource type="Script" uid="uid://dh48mmccmojpe" path="res://Scenes/characters/bugs/beetle/beetle.gd" id="1_ykqqb"]
+[ext_resource type="Texture2D" uid="uid://bto5u0k3kj07w" path="res://Assets/Characters/bugs/beetle/beetle-Sheet.webp" id="2_l1d76"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vv82n"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l1d76"]
+radius = 8.0
+height = 20.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vv82n"]
+[sub_resource type="Animation" id="Animation_w81af"]
+resource_name = "idle"
+length = 0.633337
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_rfk2h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1n856"]
+_data = {
+&"RESET": SubResource("Animation_rfk2h"),
+&"idle": SubResource("Animation_w81af")
+}
 
 [node name="Beetle" type="CharacterBody2D" node_paths=PackedStringArray("nav", "sprite")]
 script = ExtResource("1_ykqqb")
@@ -12,10 +51,15 @@ nav = NodePath("NavigationAgent2D")
 sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.0390625, 0.0390625)
-texture = SubResource("NoiseTexture2D_vv82n")
+texture = ExtResource("2_l1d76")
+hframes = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_vv82n")
+shape = SubResource("CapsuleShape2D_l1d76")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_1n856")
+}

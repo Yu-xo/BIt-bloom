@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://cad4bs7l5l8t4" path="res://Scenes/characters/bugs/D_fly/D_fly.tscn" id="6_xps3y"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ruddp"]
-vertices = PackedVector2Array(711, 506, 1313.99, 689.094, -87.6719, 701.898, 465, 506, 1240.93, -64.8594, 711, 296, -63.3203, -45.1406, 465, 296)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 1, 0, 5), PackedInt32Array(6, 4, 5, 7), PackedInt32Array(2, 6, 7, 3)])
+vertices = PackedVector2Array(854, 545.398, 1313.99, 689.094, -87.6719, 701.898, 322, 545.398, 1240.93, -64.8594, 854, 256.602, -63.3203, -45.1406, 322, 256.602, 711, 506, 802, 506.203, 374, 506.203, 465, 506, 802, 295.797, 711, 296, 374, 295.797, 465, 296)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 1, 0, 5), PackedInt32Array(6, 4, 5, 7), PackedInt32Array(2, 6, 7, 3), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 9, 8, 13), PackedInt32Array(14, 12, 13, 15), PackedInt32Array(11, 10, 14, 15)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-73, -55, -98, 712, 1325, 699, 1250, -75)])
 
 [node name="main" type="Node2D"]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://h1ugra1s4k34"]
+
+[ext_resource type="Script" uid="uid://cpiic2j3a3m0l" path="res://Scenes/plants/blazebloom_.gd" id="1_8oktr"]
+
+[node name="Blazebloom" type="Node2D"]
+script = ExtResource("1_8oktr")
