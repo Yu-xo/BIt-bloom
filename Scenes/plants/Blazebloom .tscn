@@ -1,6 +1,88 @@
-[gd_scene load_steps=2 format=3 uid="uid://h1ugra1s4k34"]
+[gd_scene load_steps=14 format=3 uid="uid://h1ugra1s4k34"]
 
 [ext_resource type="Script" uid="uid://cpiic2j3a3m0l" path="res://Scenes/plants/blazebloom_.gd" id="1_8oktr"]
+[ext_resource type="Texture2D" uid="uid://dc0xdaw75pwwy" path="res://Assets/plants/blazebloom_bud/blazebloom-Sheet.webp" id="2_88ko6"]
+[ext_resource type="Texture2D" uid="uid://c5ybhs08a8hwd" path="res://Assets/plants/blazebloom_bud/blazebloom-bud-Sheet.webp" id="3_qbgsd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_soqpq"]
+atlas = ExtResource("2_88ko6")
+region = Rect2(0, 0, 23, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njgm1"]
+atlas = ExtResource("2_88ko6")
+region = Rect2(23, 0, 23, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vwfbc"]
+atlas = ExtResource("2_88ko6")
+region = Rect2(46, 0, 23, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqnr3"]
+atlas = ExtResource("2_88ko6")
+region = Rect2(69, 0, 23, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdco3"]
+atlas = ExtResource("3_qbgsd")
+region = Rect2(0, 0, 12, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g38fs"]
+atlas = ExtResource("3_qbgsd")
+region = Rect2(12, 0, 12, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s72lg"]
+atlas = ExtResource("3_qbgsd")
+region = Rect2(24, 0, 12, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dp1kg"]
+atlas = ExtResource("3_qbgsd")
+region = Rect2(36, 0, 12, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gksh"]
+atlas = ExtResource("3_qbgsd")
+region = Rect2(48, 0, 12, 23)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mj4js"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_soqpq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njgm1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vwfbc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqnr3")
+}],
+"loop": true,
+"name": &"bloom",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdco3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g38fs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s72lg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dp1kg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gksh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Blazebloom" type="Node2D"]
 script = ExtResource("1_8oktr")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mj4js")
+autoplay = "default"
