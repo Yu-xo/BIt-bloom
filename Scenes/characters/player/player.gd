@@ -59,8 +59,12 @@ func _process(delta: float) -> void:
 	#IFrame buffer decrease
 	if IFrames > 0: IFrames -= 1
 
-func take_damage() -> void:
+func take_damage(dmg) -> void:
 	#if you were hit recently, return
 	if IFrames > 0: return
-	health -= 1
+	health -= dmg
+	if health <= 0:
+		print("add death logic pls")
+	#Set frame to 180 
+	#assuming 60FPS, that's 3 seconds of invincibility after being hit
 	IFrames = MAX_IFrames

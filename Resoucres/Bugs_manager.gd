@@ -66,3 +66,11 @@ func _on_reached_target():
 	if target and is_instance_valid(target):
 		target.take_damage(dmg)
 		_select_target()
+
+func take_damage(dmg: int, dir: Vector2) -> void:
+	health -= dmg
+	if health <= 0: 
+		queue_free()
+		return
+	velocity += dir * SPEED*3
+	move_and_slide()
