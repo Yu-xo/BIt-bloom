@@ -11,6 +11,9 @@ extends CharacterBody2D
 var direction: Vector2
 var is_attacking: bool = false
 
+var IFrames: int = 180
+const MAX_IFrames: int = 180
+
 func _ready() -> void:
 	# make sure the signal is connected
 	animation_player.animation_finished.connect(_on_AnimationPlayer_animation_finished)
@@ -51,3 +54,13 @@ func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 			animation_player.play("run")
 		else:
 			animation_player.play("idle")
+
+func _process(delta: float) -> void:
+	#IFrame buffer decrease
+	if IFrames > 0: IFrames -= 1
+
+func take_damage() -> void:
+	#if you were hit recently, return
+	if IFrames > 0: return
+	health -= 1
+	IFrames = MAX_IFrames
