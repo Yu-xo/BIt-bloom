@@ -1,0 +1,96 @@
+[gd_scene load_steps=15 format=3 uid="uid://cs4ija26408y"]
+
+[ext_resource type="Script" uid="uid://cpiic2j3a3m0l" path="res://Scenes/plants/plantanim.gd" id="1_05k1x"]
+[ext_resource type="Texture2D" uid="uid://b2mvjkw80fi4m" path="res://Assets/plants/blazebloom_bud/ironpetal-Sheet.webp" id="2_05k1x"]
+[ext_resource type="Texture2D" uid="uid://bdq3ic3k2ruho" path="res://Assets/plants/blazebloom_bud/ironpetal-bud-Sheet.webp" id="3_ptwgr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4q6cl"]
+atlas = ExtResource("2_05k1x")
+region = Rect2(0, 0, 18, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_518bd"]
+atlas = ExtResource("2_05k1x")
+region = Rect2(18, 0, 18, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y44lb"]
+atlas = ExtResource("2_05k1x")
+region = Rect2(36, 0, 18, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rk5vo"]
+atlas = ExtResource("2_05k1x")
+region = Rect2(54, 0, 18, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fsgp"]
+atlas = ExtResource("2_05k1x")
+region = Rect2(72, 0, 18, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfwxr"]
+atlas = ExtResource("3_ptwgr")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hurt"]
+atlas = ExtResource("3_ptwgr")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijf0j"]
+atlas = ExtResource("3_ptwgr")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eda5u"]
+atlas = ExtResource("3_ptwgr")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55jef"]
+atlas = ExtResource("3_ptwgr")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mj4js"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4q6cl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_518bd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y44lb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rk5vo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fsgp")
+}],
+"loop": true,
+"name": &"bloom",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfwxr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hurt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijf0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eda5u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55jef")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Ironpetal" type="Node2D"]
+script = ExtResource("1_05k1x")
+plant_type = "IRONPETAL"
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mj4js")
+autoplay = "default"

@@ -8,7 +8,7 @@ class_name BugsManager
 var SPEED = 80
 var health = 10
 var dmg = 1
-var target: Node = null
+var target: Node2D = null
 
 var plant_list: Array = []
 
@@ -19,6 +19,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if target and is_instance_valid(target):
+		nav.target_position = target.global_position
 		var direction = global_position.direction_to(nav.get_next_path_position())
 		velocity = velocity.lerp(direction * SPEED, 0.1)
 
@@ -45,6 +46,11 @@ func _select_target():
 		elif bug_type == "DRAGONFLY" or bug_type == "MOTH":
 			if plant.stage in [2, 3]: # Only stage 2 or 3
 				possible_targets.append(plant)
+
+	var playernode = get_tree().get_first_node_in_group("player")
+	if possible_targets.is_empty() and playernode:
+		target = playernode
+		return
 
 	# Pick the nearest valid target
 	if possible_targets.size() > 0:

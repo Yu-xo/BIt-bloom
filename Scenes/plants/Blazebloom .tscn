@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://h1ugra1s4k34"]
 
-[ext_resource type="Script" uid="uid://cpiic2j3a3m0l" path="res://Scenes/plants/blazebloom_.gd" id="1_8oktr"]
+[ext_resource type="Script" uid="uid://cpiic2j3a3m0l" path="res://Scenes/plants/plantanim.gd" id="1_8oktr"]
 [ext_resource type="Texture2D" uid="uid://dc0xdaw75pwwy" path="res://Assets/plants/blazebloom_bud/blazebloom-Sheet.webp" id="2_88ko6"]
 [ext_resource type="Texture2D" uid="uid://c5ybhs08a8hwd" path="res://Assets/plants/blazebloom_bud/blazebloom-bud-Sheet.webp" id="3_qbgsd"]
 
@@ -86,3 +86,4 @@ script = ExtResource("1_8oktr")
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mj4js")
 autoplay = "default"
+frame_progress = 0.759678

@@ -23,6 +23,7 @@ navigation_polygon = SubResource("NavigationPolygon_ruddp")
 position = Vector2(588, 401)
 
 [node name="Beetle" parent="NavigationRegion2D" instance=ExtResource("1_euisu")]
+position = Vector2(534, 100)
 
 [node name="player" parent="NavigationRegion2D" instance=ExtResource("2_oae6f")]
 
@@ -31,3 +32,5 @@ position = Vector2(148, 429)
 
 [node name="D_fly" parent="NavigationRegion2D" instance=ExtResource("6_xps3y")]
 position = Vector2(85, 237)
+
+[node name="Node" type="Node" parent="."]

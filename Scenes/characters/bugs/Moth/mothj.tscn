@@ -5,6 +5,21 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_axhde"]
 
+[sub_resource type="Animation" id="Animation_qj8qe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_v2o4c"]
 resource_name = "idle"
 length = 0.300003
@@ -22,21 +37,6 @@ tracks/0/keys = {
 "values": [0, 1, 2]
 }
 
-[sub_resource type="Animation" id="Animation_qj8qe"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8y0ad"]
 _data = {
 &"RESET": SubResource("Animation_qj8qe"),
@@ -44,6 +44,7 @@ _data = {
 }
 
 [node name="moth" type="CharacterBody2D" node_paths=PackedStringArray("nav", "sprite")]
+collision_layer = 4
 script = ExtResource("1_axhde")
 nav = NodePath("NavigationAgent2D")
 sprite = NodePath("Sprite2D")

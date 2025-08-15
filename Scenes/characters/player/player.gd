@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var hit_area: Area2D = $hit_Area
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
-@export var speed: int = 100
+@export var speed: int = 150
 @export var health: int = 3
 @export var dmg: int = 1
 

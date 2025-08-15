@@ -1,0 +1,125 @@
+[gd_scene load_steps=20 format=3 uid="uid://c6k68dbphhqq4"]
+
+[ext_resource type="Script" uid="uid://cpiic2j3a3m0l" path="res://Scenes/plants/plantanim.gd" id="1_okltd"]
+[ext_resource type="Texture2D" uid="uid://1tjuoviwqihe" path="res://Assets/plants/blazebloom_bud/bloombud-Sheet.png" id="2_jx853"]
+[ext_resource type="Texture2D" uid="uid://b11a7cacuu3ir" path="res://Assets/plants/blazebloom_bud/swiftleaf_bud-Sheet.png" id="3_icg17"]
+[ext_resource type="Texture2D" uid="uid://cjf18l5eirmij" path="res://Assets/plants/blazebloom_bud/bloombud-bud.png" id="4_morbf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0jyq"]
+atlas = ExtResource("2_jx853")
+region = Rect2(0, 0, 36, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5oxry"]
+atlas = ExtResource("2_jx853")
+region = Rect2(36, 0, 36, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8oqgm"]
+atlas = ExtResource("2_jx853")
+region = Rect2(72, 0, 36, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojfmx"]
+atlas = ExtResource("2_jx853")
+region = Rect2(108, 0, 36, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oycqy"]
+atlas = ExtResource("2_jx853")
+region = Rect2(144, 0, 36, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vqpc"]
+atlas = ExtResource("3_icg17")
+region = Rect2(0, 0, 11, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4a36g"]
+atlas = ExtResource("3_icg17")
+region = Rect2(11, 0, 11, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dutps"]
+atlas = ExtResource("3_icg17")
+region = Rect2(22, 0, 11, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3yj0"]
+atlas = ExtResource("3_icg17")
+region = Rect2(33, 0, 11, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpe3r"]
+atlas = ExtResource("3_icg17")
+region = Rect2(44, 0, 11, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbhed"]
+atlas = ExtResource("4_morbf")
+region = Rect2(0, 0, 13, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdn4a"]
+atlas = ExtResource("4_morbf")
+region = Rect2(13, 0, 13, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fi0ps"]
+atlas = ExtResource("4_morbf")
+region = Rect2(26, 0, 13, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fal2w"]
+atlas = ExtResource("4_morbf")
+region = Rect2(39, 0, 13, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mj4js"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c0jyq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5oxry")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8oqgm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ojfmx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oycqy")
+}],
+"loop": true,
+"name": &"bloom",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vqpc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4a36g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dutps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3yj0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wpe3r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbhed")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdn4a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fi0ps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fal2w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Bloombud" type="Node2D"]
+script = ExtResource("1_okltd")
+plant_type = "SWIFTLEAF"
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mj4js")
+autoplay = "default"
