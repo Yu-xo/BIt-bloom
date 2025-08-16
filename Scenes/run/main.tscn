@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cx64ny6tlraa6"]
+[gd_scene load_steps=7 format=3 uid="uid://cx64ny6tlraa6"]
 
 [ext_resource type="PackedScene" uid="uid://c0nhbjacseef" path="res://Scenes/stage/stage.tscn" id="1_smq3h"]
 [ext_resource type="PackedScene" uid="uid://chmwo1mjvce0x" path="res://Scenes/Entities/plant_area/plant_area.tscn" id="2_8lq5h"]
 [ext_resource type="PackedScene" uid="uid://duk6gpf32onem" path="res://Scenes/characters/player/player.tscn" id="2_oae6f"]
 [ext_resource type="Script" uid="uid://dethh7a01hd8e" path="res://Scenes/run/Waves.gd" id="4_wfijp"]
+[ext_resource type="AudioStream" uid="uid://c2nbt32w4o544" path="res://Assets/music/Night time.mp3" id="5_mhves"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_xps3y"]
 vertices = PackedVector2Array(854, 545.398, 1290, 640, 10, 640, 322, 545.398, 10, 10, 322, 256.602, 1290, 10, 854, 256.602, 711, 506, 802, 506.203, 374, 506.203, 465, 506, 802, 295.797, 711, 296, 374, 295.797, 465, 296)
@@ -21,6 +22,7 @@ navigation_polygon = SubResource("NavigationPolygon_xps3y")
 position = Vector2(588, 401)
 
 [node name="player" parent="NavigationRegion2D" instance=ExtResource("2_oae6f")]
+position = Vector2(617, 196)
 
 [node name="bugparent" type="Node" parent="."]
 script = ExtResource("4_wfijp")
@@ -35,3 +37,7 @@ position = Vector2(1300, 650)
 
 [node name="spawnpoint4" type="Marker2D" parent="bugparent"]
 position = Vector2(1300, 0)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_mhves")
+volume_db = 5.0

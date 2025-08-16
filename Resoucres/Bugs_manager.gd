@@ -17,6 +17,8 @@ signal died
 func _ready() -> void:
 	# Find all plants in the scene at start (make sure they’re in the "plants" group, not "player")
 	plant_list = get_tree().get_nodes_in_group("plants")
+	nav.target_desired_distance = 4
+	nav.target_reached.connect(_on_reached_target)
 	_select_target()
 
 func _physics_process(delta: float) -> void:
@@ -48,8 +50,10 @@ func _select_target():
 		elif bug_type == "DRAGONFLY" or bug_type == "MOTH":
 			if plant.stage in [2, 3]: # Only stage 2 or 3
 				possible_targets.append(plant)
-
+	
+	if !get_tree(): return
 	var playernode = get_tree().get_first_node_in_group("player")
+	if !playernode: return
 	if possible_targets.is_empty() and playernode:
 		target = playernode
 		return

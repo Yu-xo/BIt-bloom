@@ -11,7 +11,7 @@ extends CharacterBody2D
 var direction: Vector2
 var is_attacking: bool = false
 
-var IFrames: int = 180
+var IFrames: int = 0
 const MAX_IFrames: int = 180
 
 func _ready() -> void:
@@ -64,7 +64,7 @@ func take_damage(dmg) -> void:
 	if IFrames > 0: return
 	health -= dmg
 	if health <= 0:
-		print("add death logic pls")
+		get_tree().change_scene_to_file("res://Scenes/ui/title.tscn")
 	#Set frame to 180 
 	#assuming 60FPS, that's 3 seconds of invincibility after being hit
 	IFrames = MAX_IFrames

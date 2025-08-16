@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://duk6gpf32onem"]
+[gd_scene load_steps=16 format=3 uid="uid://duk6gpf32onem"]
 
 [ext_resource type="Script" uid="uid://ch84ivw70vswv" path="res://Scenes/characters/player/player.gd" id="1_8nn4t"]
 [ext_resource type="Texture2D" uid="uid://dsg167g88cr6g" path="res://Assets/Characters/player/player-pitchfork-Sheet.webp" id="2_8nn4t"]
 [ext_resource type="Script" uid="uid://2gdgpiga66e2" path="res://Scenes/characters/player/hit_area.gd" id="3_3gb3b"]
-[ext_resource type="PackedScene" uid="uid://6hi1scpvjjfp" path="res://Scenes/characters/player/interwave_ui.tscn" id="4_v83h7"]
+[ext_resource type="PackedScene" uid="uid://6hi1scpvjjfp" path="res://Scenes/ui/interwave_ui.tscn" id="4_v83h7"]
+[ext_resource type="Script" uid="uid://c6y4kc8yr240y" path="res://Scenes/characters/player/healthbar.gd" id="5_a6wmr"]
+[ext_resource type="Texture2D" uid="uid://cj1eno48p4nef" path="res://Assets/ui/branch_healthbar.png" id="5_fgfa2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8nn4t"]
 radius = 5.0
@@ -112,6 +114,10 @@ _data = {
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3gb3b"]
 radius = 6.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgfa2"]
+atlas = ExtResource("5_fgfa2")
+region = Rect2(0, 0, 114, 16)
+
 [node name="player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 4
 script = ExtResource("1_8nn4t")
@@ -153,5 +159,12 @@ position_smoothing_speed = 50.0
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Control" parent="CanvasLayer" instance=ExtResource("4_v83h7")]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_right = 114.0
+offset_bottom = 16.0
+texture = SubResource("AtlasTexture_fgfa2")
+stretch_mode = 2
+script = ExtResource("5_a6wmr")
 
 [connection signal="body_entered" from="hit_Area" to="hit_Area" method="_on_body_entered"]
