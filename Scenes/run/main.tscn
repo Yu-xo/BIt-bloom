@@ -1,36 +1,37 @@
-[gd_scene load_steps=8 format=3 uid="uid://cx64ny6tlraa6"]
+[gd_scene load_steps=6 format=3 uid="uid://cx64ny6tlraa6"]
 
-[ext_resource type="PackedScene" uid="uid://cdi37btly5dxh" path="res://Scenes/characters/bugs/beetle/beetle.tscn" id="1_euisu"]
 [ext_resource type="PackedScene" uid="uid://c0nhbjacseef" path="res://Scenes/stage/stage.tscn" id="1_smq3h"]
 [ext_resource type="PackedScene" uid="uid://chmwo1mjvce0x" path="res://Scenes/Entities/plant_area/plant_area.tscn" id="2_8lq5h"]
 [ext_resource type="PackedScene" uid="uid://duk6gpf32onem" path="res://Scenes/characters/player/player.tscn" id="2_oae6f"]
-[ext_resource type="PackedScene" uid="uid://c0auac38a455c" path="res://Scenes/characters/bugs/Moth/mothj.tscn" id="5_wfijp"]
-[ext_resource type="PackedScene" uid="uid://cad4bs7l5l8t4" path="res://Scenes/characters/bugs/D_fly/D_fly.tscn" id="6_xps3y"]
+[ext_resource type="Script" uid="uid://dethh7a01hd8e" path="res://Scenes/run/Waves.gd" id="4_wfijp"]
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_ruddp"]
-vertices = PackedVector2Array(854, 545.398, 1313.99, 689.094, -87.6719, 701.898, 322, 545.398, 1240.93, -64.8594, 854, 256.602, -63.3203, -45.1406, 322, 256.602, 711, 506, 802, 506.203, 374, 506.203, 465, 506, 802, 295.797, 711, 296, 374, 295.797, 465, 296)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 1, 0, 5), PackedInt32Array(6, 4, 5, 7), PackedInt32Array(2, 6, 7, 3), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 9, 8, 13), PackedInt32Array(14, 12, 13, 15), PackedInt32Array(11, 10, 14, 15)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-73, -55, -98, 712, 1325, 699, 1250, -75)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_xps3y"]
+vertices = PackedVector2Array(854, 545.398, 1290, 640, 10, 640, 322, 545.398, 10, 10, 322, 256.602, 1290, 10, 854, 256.602, 711, 506, 802, 506.203, 374, 506.203, 465, 506, 802, 295.797, 711, 296, 374, 295.797, 465, 296)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4, 5), PackedInt32Array(5, 4, 6, 7), PackedInt32Array(7, 6, 1, 0), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 9, 8, 13), PackedInt32Array(14, 12, 13, 15), PackedInt32Array(11, 10, 14, 15)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, 0, 1300, 0, 1300, 650, 0, 650)])
 
 [node name="main" type="Node2D"]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-navigation_polygon = SubResource("NavigationPolygon_ruddp")
+navigation_polygon = SubResource("NavigationPolygon_xps3y")
 
 [node name="stage" parent="NavigationRegion2D" instance=ExtResource("1_smq3h")]
 
 [node name="plant_area" parent="NavigationRegion2D" instance=ExtResource("2_8lq5h")]
 position = Vector2(588, 401)
 
-[node name="Beetle" parent="NavigationRegion2D" instance=ExtResource("1_euisu")]
-position = Vector2(534, 100)
-
 [node name="player" parent="NavigationRegion2D" instance=ExtResource("2_oae6f")]
 
-[node name="moth" parent="NavigationRegion2D" instance=ExtResource("5_wfijp")]
-position = Vector2(148, 429)
+[node name="bugparent" type="Node" parent="."]
+script = ExtResource("4_wfijp")
 
-[node name="D_fly" parent="NavigationRegion2D" instance=ExtResource("6_xps3y")]
-position = Vector2(85, 237)
+[node name="spawnpoint1" type="Marker2D" parent="bugparent"]
 
-[node name="Node" type="Node" parent="."]
+[node name="spawnpoint2" type="Marker2D" parent="bugparent"]
+position = Vector2(0, 650)
+
+[node name="spawnpoint3" type="Marker2D" parent="bugparent"]
+position = Vector2(1300, 650)
+
+[node name="spawnpoint4" type="Marker2D" parent="bugparent"]
+position = Vector2(1300, 0)

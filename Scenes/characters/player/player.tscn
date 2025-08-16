@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://duk6gpf32onem"]
+[gd_scene load_steps=13 format=3 uid="uid://duk6gpf32onem"]
 
 [ext_resource type="Script" uid="uid://ch84ivw70vswv" path="res://Scenes/characters/player/player.gd" id="1_8nn4t"]
 [ext_resource type="Texture2D" uid="uid://dsg167g88cr6g" path="res://Assets/Characters/player/player-pitchfork-Sheet.webp" id="2_8nn4t"]
 [ext_resource type="Script" uid="uid://2gdgpiga66e2" path="res://Scenes/characters/player/hit_area.gd" id="3_3gb3b"]
+[ext_resource type="PackedScene" uid="uid://6hi1scpvjjfp" path="res://Scenes/characters/player/interwave_ui.tscn" id="4_v83h7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8nn4t"]
 radius = 5.0
@@ -148,5 +149,9 @@ limit_bottom = 650
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 50.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("4_v83h7")]
 
 [connection signal="body_entered" from="hit_Area" to="hit_Area" method="_on_body_entered"]

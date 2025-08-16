@@ -6,11 +6,13 @@ class_name BugsManager
 @export var sprite: Sprite2D
 
 var SPEED = 80
-var health = 10
+var health = 5
 var dmg = 1
 var target: Node2D = null
 
 var plant_list: Array = []
+
+signal died
 
 func _ready() -> void:
 	# Find all plants in the scene at start (make sure they’re in the "plants" group, not "player")
@@ -66,11 +68,13 @@ func _on_reached_target():
 	if target and is_instance_valid(target):
 		target.take_damage(dmg)
 		_select_target()
+		
 
 func take_damage(dmg: int, dir: Vector2) -> void:
 	health -= dmg
 	if health <= 0: 
+		died.emit()
 		queue_free()
 		return
-	velocity += dir * SPEED*3
+	velocity += dir * SPEED*5
 	move_and_slide()
